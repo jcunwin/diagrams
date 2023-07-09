@@ -1,0 +1,12 @@
+digraph G {
+    Job_seekers [label="Job seekers"]
+    Online_system [label="Online system"]
+    DESP [label="DESP"]
+    CMS [label="CMS"]
+    Employers [label="Employers"]
+
+    Job_seekers -> Online_system [label="uses"]
+    Online_system -> DESP [label="communicates with"]
+    DESP -> CMS [label="depends on"]
+    Employers -> Online_system [label="uses"]
+}

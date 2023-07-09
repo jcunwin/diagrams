@@ -1,0 +1,14 @@
+@startuml
+Bob -> Alice : hello
+Alice -> Bob : Just **bog off** will you!?
+Bob -> Alice : Well that is __very__ nice!
+
+Alice->>John: Hello John, how are you?
+loop Healthcheck
+    John->>John: Fight against hypochondria
+end
+Note right of John: Rational thoughts!
+John-->>Alice: Great!
+John->>Bob: How about you Bob? 
+Bob-->>John: Jolly bally good JJ!
+@enduml

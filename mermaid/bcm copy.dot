@@ -1,0 +1,105 @@
+digraph G  { 
+    compound=true
+    rankdir=TB
+    ranksep="0.3"
+    bgcolor=lightblue
+    /*style=filled*/ 
+    node [shape=box style=rounded]
+    subgraph cluster_dir { 
+        rankdir=LR
+        /*[style=filled]*/
+        label="Direction Setting"
+        subgraph cluster_4 { label="4.0 Change Management"
+            color=blue
+            fillcolor=red
+            more4 -> less4
+        }
+        subgraph cluster_3 { label="3.0 Policy and Outcomes Management"
+            color=blue
+            fillcolor=red
+            more -> less
+        }
+        subgraph cluster_2 { label="2.0 Enterprise Planning"
+            color=blue
+            fillcolor=red
+            subgraph cluster_2_1 { label="2.1 Governance"
+                "2.1.1 Governance Structure"
+                ->
+                "2.1.2 Governance Practice"
+                [style=invis]
+            }   
+        }
+        subgraph cluster_1 { label="1.0 Government Agenda"
+            subgraph cluster_1_2 { label="1.2 Budget Cycle Management"
+                "1.2.1 Budget Estimates Management"
+                ->
+                "1.2.2 Budget Delivery" 
+                ->
+                "1.2.3 Budget Monitoring"
+                [style=invis]
+            }   
+            subgraph cluster_1_1 { label="1.1 Legislative Framework Management"
+                "1.1.1 Legislation and Regulation Assessment"
+                ->
+                "1.1.2 Legislation and Regulation Recommendations" 
+                ->
+                "1.1.3 Legislation and Regulation Development" 
+                [style=invis]
+            }   
+        }
+        
+    }
+    subgraph cluster_core { 
+        rankdir=BT
+        /*[style=filled]*/
+        label="Core Delivery"
+        subgraph cluster_9 { label="9.0 Compliance and Investigation Management"
+        n9
+        }
+        subgraph cluster_8 { label="8.0 Service Assurance Management"
+        n8
+        }
+        subgraph cluster_7 { label="7.0 Partner & Provider Management"
+        n7
+        }
+        subgraph cluster_6 { label="6.0 Integrated Service Management"
+        n6
+        }
+        subgraph cluster_5 { label="5.0 Client Relationship Management"
+            color=red
+            fillcolor=green
+            subgraph cluster_5_1 { label="5.1 Client Intelligence Management"
+                color=darkgreen
+                fillcolor=pink
+                "5.1.1 Client Segmentation Management"
+                ->
+                "5.1.2 Client Segment Monitoring"
+                ->
+                "5.1.3 Client Interaction Analysis"
+                [style=invis]
+            }   
+        }
+    }
+    
+    /* edge betwwen clusters */
+    /* cluster_dir -> cluster_core */
+    "1.1.3 Legislation and Regulation Development" -> "5.1.1 Client Segmentation Management" [ltail=cluster_core, lhead=cluster_dir, style=invis]
+
+
+    subgraph cluster_supporting { 
+        rankdir=TB
+        /*[style=filled]*/
+        label="Supporting"
+        subgraph cluster_11 { label="11.0 Corporate Management & Oversight"
+        B11 -> A11A
+        }
+        subgraph cluster_10 { label="10.0 Enterprise Resource & Assets Management"
+        B10 ->A10A
+        }
+    }
+
+    /* edge betwwen clusters */
+    /* cluster_dir -> cluster_core */
+    "5.1.3 Client Interaction Analysis" -> A10A [ltail=cluster_core, lhead=cluster_dir, style=invis]
+
+}

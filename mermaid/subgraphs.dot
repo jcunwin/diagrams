@@ -1,0 +1,34 @@
+digraph G {
+        compound=true
+
+        subgraph cluster_family1 {
+                graph [ label="Family1"; ]
+                subgraph cluster_genus1_3 {
+                        graph [ label="Genus1.3"; ]
+                        species_12
+                        species_13
+                }
+                subgraph cluster_genus1 {
+                        graph [ label="Genus1"; ]
+                        species_2
+                        species_1
+                }
+                subgraph cluster_genus2 {
+                        graph [ label="Genus2"; ]
+                        species_4
+                        species_3
+                }
+        }
+        subgraph cluster_family2 {
+                graph [ label="Family2"; ]
+                subgraph cluster_genus3 {  // fixed duplicate name
+                        graph [ label="Genus3"; ]
+                        species_6
+                        species_5
+                }
+        }
+        species_2 -> species_4 [ ltail=cluster_genus1 lhead=cluster_genus2
+            # style=invis
+        ] # changed head to tail??
+        species_5 -> species_4
+}

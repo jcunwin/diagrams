@@ -1,0 +1,203 @@
+digraph G  { 
+    compound=true
+    rankdir=TB
+    ranksep="0.1"
+    bgcolor=lightblue
+    /*style=filled*/ 
+    node [shape=box style=rounded]
+    subgraph cluster_dir { 
+        rankdir=LR
+        /*[style=filled]*/
+        label="Direction Setting"
+        subgraph cluster_4 { label="4.0 Change Management"
+            color=blue
+            fillcolor=red
+            more4 -> less4
+        }
+        subgraph cluster_3 { label="3.0 Policy and Outcomes Management"
+            color=blue
+            fillcolor=red
+            more -> less
+        }
+        subgraph cluster_2 { label="2.0 Enterprise Planning"
+            color=blue
+            fillcolor=red
+            subgraph cluster_2_1 { label="2.1 Governance"
+                "2.1.1 Governance Structure"
+                ->
+                "2.1.2 Governance Practice"
+                [style=invis]
+            }   
+        }
+        subgraph cluster_1 { label="1.0 Government Agenda"
+            subgraph cluster_1_2 { label="1.2 Budget Cycle Management"
+                "1.2.1 Budget Estimates Management"
+                ->
+                "1.2.2 Budget Delivery" 
+                ->
+                "1.2.3 Budget Monitoring"
+                [style=invis]
+            }   
+            subgraph cluster_1_1 { label="1.1 Legislative Framework Management"
+                "1.1.1 Legislation and Regulation Assessment"
+                ->
+                "1.1.2 Legislation and Regulation Recommendations" 
+                ->
+                "1.1.3 Legislation and Regulation Development" 
+                [style=invis]
+            }   
+        }
+        
+    }
+    subgraph cluster_core { 
+        rankdir=BT
+        /*[style=filled]*/
+        label="Core Delivery"
+        subgraph cluster_9 { label="9.0 Compliance and Investigation Management" node_9 }
+        subgraph cluster_8 { label="8.0 Service Assurance Management" node_8 }
+        subgraph cluster_7 { label="7.0 Partner & Provider Management" node_7 }
+        subgraph cluster_6 { label="6.0 Integrated Service Management" node_6 }
+        subgraph cluster_5 { label="5.0 Client Relationship Management"
+            color=red
+            fillcolor=green
+            subgraph cluster_5_5 { label="5.5 Client Communications Management" 
+                "5.5.1 Client Communications Design" ->
+                "5.5.2 Client Communications Delivery" [style=invis]
+            }
+            subgraph cluster_5_4 { label="5.4 Client Management"
+                "5.4.1 Client Account Management" ->
+                "5.4.2 Client Information Intake" ->
+                "5.4.3 Client Information Management" ->
+                "5.4.4 Client Identity Authentication" [style=invis]
+            }
+            subgraph cluster_5_3 { label="5.3 Client Engagement Management" 
+                "5.3.1 Client Request Management" ->
+                "5.3.2 Client Interactions Tracking" ->
+                "5.3.3 Client Assessment Management" ->
+                "5.3.4 Client Feedback Management" ->
+                "5.3.5 Client Consultation Management" ->
+                "5.3.6 Multi-Language Support Management" [style=invis]
+
+            }
+            subgraph cluster_5_2 { label="5.2 Client Awareness Management"
+                "5.2.1 Client Outreach Management" ->
+                "5.2.2 Client Education" ->
+                "5.2.3 Service Matching" [style=invis]
+
+            }
+
+            subgraph cluster_5_1 { label="5.1 Client Intelligence Management"
+                color=darkgreen
+                fillcolor=pink
+                "5.1.1 Client Segmentation Management"
+                ->
+                "5.1.2 Client Segment Monitoring"
+                ->
+                "5.1.3 Client Interaction Analysis"
+                [style=invis]
+            }   
+        }
+
+    }
+    
+    /* edge betwwen clusters */
+    /* cluster_dir -> cluster_core */
+    "1.1.3 Legislation and Regulation Development" -> "5.1.1 Client Segmentation Management" [ltail=cluster_core, lhead=cluster_dir, style=invis]
+
+
+    subgraph cluster_supporting { 
+        rankdir=TB
+        /*[style=filled]*/
+        label="Supporting"
+        subgraph cluster_11 { label="11.0 Corporate Management & Oversight"
+            subgraph cluster_11_7 { label="11.7 Corporate Reporting" 
+                "11.7.1 Government Reporting Framework" ->
+                "11.7.2 Departmental Reporting" [style=invis]
+            }
+            subgraph cluster_11_6 { label="11.6 Business Disruption Management" 
+                "11.6.1 Emergency Operations Management" ->
+                "11.6.2 Business Continuity Management" ->
+                "11.6.3 Disaster Recovery Management" [style=invis]
+             }
+            subgraph cluster_11_5 { label="11.5 Risk & Internal Compliance Management" 
+                "11.5.1 Risk Operations Management" ->
+                "11.5.2 Risk Management Support" ->
+                "11.5.3 Employee Compliance Management" [style=invis]
+            }
+            subgraph cluster_11_4 { label="11.4 Legal Management"
+                "11.4.1 Legal Advice" ->
+                "11.4.2 Legal Support" [style=invis]
+            }
+            subgraph cluster_11_3 { label="11.3 Audit Management"
+                "11.3.1 Audit Planning" ->
+                "11.3.2 Audit Execution" ->
+                "11.3.3 Audit Evaluation" [style=invis]
+            }
+            subgraph cluster_11_2 { label="11.2 Communications Management"
+                "11.2.1 Public Affairs Management" ->
+                "11.2.2 Strategic Communication Management" ->
+                "11.2.3 Communication Campaign Management" [style=invis]
+
+            }
+            subgraph cluster_11_1 { label="11.1 Security Management" 
+                "11.1.1 Employee Authentication Management"  ->
+                "11.1.2 Provisioning & Access Management" ->
+                "11.1.3 Application Security Management" ->
+                "11.1.4 Infrastructure Security Management" ->
+                "11.1.5 Information Security & Privacy Management" ->
+                "11.1.6 Employee Security Management"  [style=invis]
+            }
+        }
+        subgraph cluster_10 { label="10.0 Enterprise Resource & Assets Management"
+            subgraph cluster_10_6 { label="10.6 Technology Management" 
+                "10.6.1 IT Program Management" ->
+                "10.6.2 IT Technical Management" ->
+                "10.6.3 IT Service Management & Operations" ->
+                "10.6.4 Channel Infrastructure Management" [style=invis]
+
+            }
+            subgraph cluster_10_5 { label="10.5 Information Management"
+                "10.5.1 Content & Collaboration Management" ->
+                "10.5.2 Document & Records Management" ->
+                "10.5.3 Knowledge Management" ->
+                "10.5.4 Integrated Data Management" ->
+                "10.5.5 Enterprise Information Operations" ->
+                "10.5.6 Business Intelligence" ->
+                "10.5.7 Information Exchange Management" [style=invis]
+
+            }
+            subgraph cluster_10_4 { label="10.4 Human Resources Management"
+                "10.4.4 Workplace Management" ->
+                "10.4.3 Training and Development Management" ->
+                "10.4.2 Workforce Management" ->
+                "10.4.1 Workforce Planning and Analysis" [style=invis]
+
+            }
+            subgraph cluster_10_3 { label="10.3 Acquisition Management"
+                "10.3.3 Contract Management" ->
+                "10.3.2 Vendor Management" ->
+                "10.3.1 Sourcing Management" [style=invis]
+
+            }
+            subgraph cluster_10_2 { label="10.2 Materials and Accommodations Management" 
+                "10.2.3 Facilities Support Management" ->
+                "10.2.2 Assets Management" ->
+                "10.2.1 Accommodation Management" [style=invis]
+
+            }
+            subgraph cluster_10_1 { label="10.1 Financial Management" 
+                "10.1.4 Financial Analysis & Evaluation" ->
+                "10.1.3 Costing & Funding Management" ->
+                "10.1.2 Accounting Management" ->
+                "10.1.1 Financial Planning & Budgeting" [style=invis]
+
+            }
+
+        }
+    }
+
+    /* edge betwwen clusters */
+    /* cluster_dir -> cluster_core */
+    "5.1.3 Client Interaction Analysis" -> A10A [ltail=cluster_core, lhead=cluster_dir, style=invis]
+
+}

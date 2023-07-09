@@ -1,0 +1,23 @@
+digraph G  { 
+    compound=true
+    rankdir=TB
+    ranksep="0.1"
+    /*bgcolor=lightblue*/
+    /*style=filled*/ 
+    node [shape=box style=square color=darkblue fillcolor=green]
+
+    subgraph cluster_dir { label=BCM
+
+        subgraph another_dir { label=C
+
+
+        }
+    }
+
+    BCM [shape=record label="
+    {Direction Setting | {Govt Agenda | Other }|
+    Core Delivery |  { a b } |
+    Supporting}"
+    ]
+
+}
